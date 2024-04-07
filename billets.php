@@ -154,13 +154,40 @@ exit();
 
 
 //la METHODE LIRE
-public function read(){}
+public function read(){
+ try {
+   
+   $sql= "SELECT * FROM Billets";
+   $stmt=$this->connexion->prepare($sql);
+   $stmt->execute();
+   $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   return $resultat;
+
+
+ } catch (PDOException $e) {
+   die("erreur impossible d'afficher le billet".$e->getMessage()); 
+ }
+   }
 
 //la METHODE MODIFIER
 public function update(){}
 
 //la METHODE SUPPRIMER
-public function delete(){}
+public function delete($id){
+    try {
+        // la Requette de suppression
+        $sql=" DELETE FROM  Billets WHERE id = :id ";
+        // Preparation de la requete
+        $stmt =$this->connexion -> prepare($sql);
+      //liasion de la valeur id
+        $stmt->bindValue(':id',$id, PDO::PARAM_INT);
+        //Exécution de la requete
+        $stmt->execute();
+        return true ;
+    } catch (PDOException $e) {
+        die("impossible  de Supprimer". $e->getMessage());
+    }
+}
 
 
 

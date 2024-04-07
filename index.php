@@ -1,3 +1,5 @@
+ 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,11 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <a href="#">Accueil</a>
+        <a href="afficheBillet.php">les billets</a>
+        <a href="#">les clients</a>
+    </header>
    <section>
    <h1 class="titre_form"> Gestion Billet</h1>
     <form action="ajout.php" method="POST">
@@ -30,7 +37,13 @@
 </body>
 
 <style>
-
+    .titre_form{
+        margin: 1%;
+    }
+*{
+    margin: 00;
+    padding: 00;
+}
     form{
         display: flex;
         flex-direction: column;
@@ -49,6 +62,19 @@
     }
     .titre_form{
         text-align: center;
+    }
+    header{
+        padding: 1%;
+        background-color: black;
+        list-style: none;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-around;
+
+    }
+    header a {
+        text-decoration: none;
+        color:wheat;
     }
 
 </style>
