@@ -14,7 +14,7 @@
         <a href="#">les clients</a>
     </header>
    <section>
-   <h1 class="titre_form"> Gestion Billet</h1>
+   <h1 class="titre_form"> Enregistrer un Billet</h1>
     <form action="ajout.php" method="POST">
     <input type="text" name="nom_complet" id="nom_complet" placeholder="Entrer le nom complet">
     <input type="number" name="numero" id="numero" placeholder="Entrer le votre numero">

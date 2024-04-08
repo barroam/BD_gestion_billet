@@ -19,11 +19,8 @@ class billet implements ICRUD {
 
 
      public function  __construct( $connexion,$mode_transport,$heure_reservation,$heure_depart,$heure_arrivee,$ville_depart,$ville_arrivee,$prix,$numero,$status,$nom_complet){
-
-       $this->connexion=$connexion;
-
-
-
+       
+        $this->connexion=$connexion;
         $this->heure_reservation = $heure_reservation ;
         $this->mode_transport = $mode_transport ;
         $this->heure_depart = $heure_depart ;
@@ -169,8 +166,46 @@ public function read(){
  }
    }
 
+
+
+
 //la METHODE MODIFIER
-public function update(){}
+public function update($id,$mode_transport,$heure_reservation,$heure_depart,$heure_arrivee,$ville_depart,$ville_arrivee,$prix,$numero,$status,$nom_complet){
+
+   
+
+try { 
+    // Préparation de la requête avec les paramètres nommés
+
+
+   $stmt=$this->connexion->prepare("UPDATE Billets SET    mode_transport = :mode_transport ,  ville_depart = :ville_depart , ville_arrive = :ville_arrive , 
+prix = :prix , status = :status , nom_complet = :nom_complet , numero = :numero  WHERE id = :id ");
+    
+// Liaison des valeurs aux paramètres de la requête
+   $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+   $stmt->bindParam(":mode_transport", $mode_transport, PDO::PARAM_STR);
+   $stmt->bindParam(":ville_depart", $ville_depart, PDO::PARAM_STR);
+   $stmt->bindParam(":ville_arrive", $ville_arrivee, PDO::PARAM_STR);
+   $stmt->bindParam(":prix", $prix, PDO::PARAM_STR);
+   $stmt->bindParam(":status", $status, PDO::PARAM_STR);
+   $stmt->bindParam(":nom_complet", $nom_complet, PDO::PARAM_STR);
+   $stmt->bindParam(":numero", $numero, PDO::PARAM_INT);
+
+   // Exécution de la requête
+   $stmt->execute();
+
+// Redirection vers une autre page après l'insertion
+header("Location: index.php");
+exit();
+
+   } catch (PDOException $e) {
+    die("erreur: impossible d'inserer des données ". $e->getMessage());
+   }
+}
+
+
+
+
 
 //la METHODE SUPPRIMER
 public function delete($id){

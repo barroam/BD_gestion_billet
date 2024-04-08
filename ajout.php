@@ -7,15 +7,17 @@
 require_once "config.php";
 require_once "billets.php";
 
- function validate($verifie){
-    $verifie = trim($verifie);
-    $verifie = stripcslashes($verifie);
-    $verifie = htmlspecialchars($verifie);
-    return $verifie; }
 
 
 
 if (isset($_POST['submitAjout'])){
+
+    function validate($verifie){
+        $verifie = trim($verifie);
+        $verifie = stripcslashes($verifie);
+        $verifie = htmlspecialchars($verifie);
+        return $verifie; }
+
     $heure_reservation = validate($_POST['heure_reservation']);
     $mode_transport = validate($_POST['mode_transport']);
     $heure_depart = validate($_POST['date_depart']);
