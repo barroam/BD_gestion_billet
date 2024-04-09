@@ -139,7 +139,7 @@ $stmt->bindParam(":numero", $numero, PDO::PARAM_INT);
 $stmt->execute();
 
 // Redirection vers une autre page après l'insertion
-header("Location: index.php");
+header("Location: afficheBillet.php");
 exit();
 
         } catch (PDOException $e) {
@@ -195,7 +195,7 @@ prix = :prix , status = :status , nom_complet = :nom_complet , numero = :numero 
    $stmt->execute();
 
 // Redirection vers une autre page après l'insertion
-header("Location: index.php");
+header("Location: afficheBillet.php");
 exit();
 
    } catch (PDOException $e) {

@@ -34,19 +34,22 @@ prix, status, nom_complet, numero*/
 <div class="billet"> 
 
 <div class="billetInfo"> N° <h4><?php echo $row['id']; ?> 
- </h4> Nom Complet <h4><?php echo $row['nom_complet']; ?> 
+ </h4> Nom <h4><?php echo $row['nom_complet']; ?> 
 </h4> Numéro Téléphone: <h4><?php echo $row['numero']; ?> </h4></div> 
 
-<div class="billetDepart"><h4> <?php echo $row['ville_depart']; ?>
+<div class="billetDepart"> Point de départ: <h4> <?php echo $row['ville_depart']; ?>
  </h4> <br>  <h4><?php echo $row['date_depart']; ?> </h4> <br></div>
-<div class="billetDestination"> <h4> <?php echo $row['ville_arrive']; ?> </h4> 
+<div class="billetDestination"> Destination: <h4> <?php echo $row['ville_arrive']; ?> </h4> 
  <h4><?php echo $row['date__arrive']; ?> </h4>  </div>
-<div class="billetqualite"> <h4><?php echo $row['mode_transport']; ?> </h4> 
- <h4>  <?php echo $row['status']; ?> </h4>  <?php echo $row['prix']; ?> </div>
+<div class="billetqualite"> Moyens et Confort: <h4><?php echo $row['mode_transport']; ?> </h4> 
+ <h4>  <?php echo $row['status']; ?> </h4> <h4><?php echo $row['prix']; ?></h4>  </div>
 
- <div>  <h4 ><?php echo $row['heure_reservation']; ?></h4> 
- <a href="update.php?id=<?php echo $row['id']; ?>" >Edit</a>
+ <div class="billetAction">  
+
+ <a href="update.php?id=<?php echo $row['id']; ?>" >Edit</a>   
+ <h4 > <?php echo $row['heure_reservation']; ?></h4> 
  <a href="supprime.php?id=<?php echo $row['id']; ?>" >Delete</a>
+
 </div>
 
  </div>  
@@ -86,15 +89,51 @@ prix, status, nom_complet, numero*/
   
     background-color: wheat;
     margin: 1%;
-    padding: 1%;
+ 
    width: 28%;
+   text-align: start;
+   align-items: flex-start;
  }
 .billetInfo{
     display: flex;
     justify-content: space-around;
+    margin: 1%;   
+    background-color: gray;
 
 }
- 
+ .billetDepart{
+    display: flex;
+    justify-content: space-around;
+    margin: 1%;
+    background-color: white;
+ }
+ .billetDestination{
+    display: flex;
+    justify-content: space-around;
+    margin: 1%;
+    background-color: white;
+ }
+ .billetqualite{
+    display: flex;
+    justify-content: space-around;
+    margin: 1%;
+    background-color: whitesmoke;
+ }
+ .billetAction{
+    display: flex;
+    justify-content: space-around;
+    margin: 1%;
+    background-color: white;
+ }
+ .billetAction a {
+    text-decoration: none;
+    color: rosybrown;
+    margin: 1%;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    
+ }
    
 </style>
 </html>
